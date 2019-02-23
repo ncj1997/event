@@ -1,0 +1,64 @@
+<div class="container" >
+  <h1>Event Create for Beez</h1>
+  {{mymodel.value|json}}
+      <form #mymodel="ngForm">
+        
+        <div class="row">
+          <div class="form-group col">
+            <label for="eventname">Name:</label>
+            <input type="text" #myname name="event_name" id="eventname" class="form-control" ngModel >
+            {{myname.className}}
+          </div>
+          <div class="form-group col">
+              <label for="date">Date of the event</label>
+              <input type="date" name="date" id="date" class="form-control" ngModel>
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="comment">Description</label>
+            <textarea class="form-control col-sm" name="description" rows="5" id="comment" ngModel></textarea>
+          </div>
+        <div class="row">
+          <div class="form-group col">
+              <label >Event Type:</label> <br>
+              <select class="custom-selected col" name="eventType" ngModel>
+                <option *ngFor="let topics of topics">{{topics}}</option>
+              </select>
+            </div>
+        
+            
+            
+            <div class="form-group col">
+                <label for="mod" >Main Modarator</label> <br>
+                <select class="custom-selected" name="moderator" id="mod" ngModel>
+                  <option *ngFor="let moderators  of moderators">{{moderators}}</option>
+                </select>
+              </div>
+        </div>
+        <div class="row">
+              <div class=" form-chec mb-3 col">
+                  <label for="mod" >Location</label> <br>
+              <div class="form-check ">
+                  
+                  <input type="radio" name="locationSet" id="" class="form-check-input" value="school" ngModel>
+                  <label for="" >School</label> 
+                </div>
+                <div class="form-check">
+                    
+                    <input  #name ngModel type="radio" checked  name="locationSet" id="" class="form-check-input" value="OtherLocation" ngModel>
+                    <label for="" >Other Location  : -</label>
+                    <input type="text" disabled>
+                    {{name.className}}
+                  </div>
+                  <div >
+
+                      
+
+                  </div>    
+                </div>
+              </div>
+                <button class="btn btn-primary" type="submit" >Submit</button>
+
+        
+      </form>
+</div>
